@@ -1,6 +1,0 @@
-# ignore node modules
-**/node_modules
-
-# igore images
-**/images
-
