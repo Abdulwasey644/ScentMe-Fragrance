@@ -13,7 +13,7 @@ async function main() {
   // })  
 
   mongoose
-    .connect(process.env.MONGO_URL)
+    .connect(process.env.ATLAS_URI)
     .then((e)=>console.log("Mongo Db Connected"));
 
 
