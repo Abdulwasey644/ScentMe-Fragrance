@@ -1,0 +1,11 @@
+.filter{
+  outline-color: orange;
+  border: 2px solid orange;
+  background-color: white;
+  color: orange;
+}
+
+.filter :hover{
+  background-color: orange !important;
+  color: white !important;
+}

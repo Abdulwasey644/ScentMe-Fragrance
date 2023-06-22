@@ -1,0 +1,128 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h1>Add Product</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Product</a></li>
+                <li class="breadcrumb-item active">Add Prduct</li>
+            </ol>
+            {{#if message }}
+            <div class="alert alert-{{{"message type"}}} alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {{/if}}
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="col-12">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="card info-card sales-card">
+
+                            <div class="card-body p-4">
+                                <h2 class="theme text-center mb-4" style="font-weight: bold;">Add Product</h2>
+                                <hr class="divider">
+                                <form action="/product/new" method="post" enctype='multipart/form-data'>
+                                    <div class="row ">
+                                        <div class="col-6 my-2">
+                                            <label for="name">Name </label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <input class="form-control" type="text" name="name" placeholder="Enter Name"
+                                                required>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="brand">Brand Name</label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <input class="form-control" type="text" name="brand"
+                                                placeholder="Enter Brand Name or Type Local" required>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="type">Type </label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <select class="form-control" name="type" id="type">
+                                                <option value="0" selected disabled>Select</option>
+                                                <option value="Parfum">Parfum</option>
+                                                <option value="Eau de Parfum">Eau de Parfum</option>
+                                                <option value="Eau de Toilette">Eau de Toilette</option>
+                                                <option value="Eau de Cologne" ,>Eau de Cologne</option>
+                                                <option value="Eau Fraiche">Eau Fraiche</option>
+                                                <option value="Perfume Oil">Perfume Oil</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="gender">Gender </label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <select class="form-control" name="gender" id="gender" required>
+                                                <option value="0" selected disabled>Select</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="unisex">unisex</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="size">Size</label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <input class="form-control mb-1" type="number" name="size"
+                                                placeholder="Amount of quantity per unit e.g; 200" required>
+                                            <input class="form-control" type="text" name="size_unit"
+                                                placeholder="Unit of size e.g; mml" required>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="quantity">Quantity</label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <input class="form-control" type="number" name="quantity" id="quantity"
+                                                placeholder="Number of Pieces" required>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="price">Cost Price</label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <input class="form-control" type="number" name="cost_price" placeholder="Price (is rupees) per piece" required>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="price">Sale Price</label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <input class="form-control" type="number" name="price" placeholder="Price (is rupees) per piece" required>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <label for="image">Image</label>
+                                        </div>
+                                        <div class="col-6 my-2">
+                                            <input class="form-control" type="file" name="image"
+                                                placeholder="Choose File" required accept="image/*">
+                                        </div>
+                                        <div class="col-12 my-2">
+                                            <label for="description">Description</label>
+                                        </div>
+                                        <div class="col-12 my-2">
+                                            <textarea class="form-control" name="description" id="description" rows="5"
+                                                placeholder="Any usefull notes for user"></textarea>
+                                        </div>
+                                        <div class="col-12 my-2">
+                                            <button class="btn float-end px-5" type="submit"
+                                                style="background-color: orange; color : white; font-weight:bold;">Add</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+</main><!-- End #main -->

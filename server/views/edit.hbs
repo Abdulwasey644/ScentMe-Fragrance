@@ -1,0 +1,188 @@
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Edit Prduct</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Product</a></li>
+        <li class="breadcrumb-item active">Edit Prduct</li>
+      </ol>
+      {{#if message }}
+      <div class="alert alert-{{{"message type"}}} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-12">
+        <div class="row">
+
+          <div class="col-xxl-4 col-xl-12">
+            <div class="card info-card card-body p-4">
+              <h2 class="theme text-center mb-2" style="font-weight: bold;">Products</h2>
+              <hr class="divider">
+              <!-- Table with stripped rows -->
+              {{#if items}}
+              <table class="table table-striped">
+                <thead style="display: block;">
+                  <tr class="row">
+                    <th class="col-3 text-center" scope="col">Click to View</th>
+                    <th class="col-1 text-center" scope="col">#</th>
+                    <th class="col-2 text-center" scope="col">Name</th>
+                    <th class="col-2 text-center" scope="col">Brand</th>
+                    <th class="col-1 text-center" scope="col">Price</th>
+                    <th class="col-2 text-center" scope="col">Last Update</th>
+                  </tr>
+                </thead>
+                <tbody style="overflow-y: scroll;display: block; max-height: 400px;">
+                  {{#each items}}
+                  <tr class="row">
+                    <th class="col-3 text-center" scope="col">
+                      <a class="btn btn-outline-success px-5" style="font-weight:bold" data-bs-toggle="collapse"
+                        href="#item-{{{index}}}" role="button" aria-expanded="false"
+                        aria-controls="#item-{{{index}}}">Edit</a>
+                    </th>
+                    <th class="col-1 text-center" scope="row">{{{index}}}</th>
+                    <td class="col-2 text-center">{{{name}}}</td>
+                    <td class="col-2 text-center">{{{brand}}}</td>
+                    <td class="col-1 text-center">{{{"new price"}}}</td>
+                    <td class="col-2 text-center">{{{"update date"}}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <div class="collapse multi-collapse my-2" id="item-{{index}}">
+                        <div class="card mb-3 ml-3">
+                          <form action="/product/edit" method="post" enctype='multipart/form-data'>
+                            <div class="row">
+                              <div class="col-4 p-3">
+
+                                <label class="btn btn-outline-success" style="cursor: pointer;" for="image">
+                                  <i class="bi bi-pencil">Edit image</i>
+                                  <input type="file" name="image" id="image" accept="image/*" style="display:none;"
+                                    onchange="loadFile(event)" />
+                                  <img id="output" src="/static/img/perfumes/{{{image}}}" style="height:200px;object-fit: contain" class="img-fluid rounded-start m-2" alt="perfume image">
+                                  <input class="form-control" type="text" name="old_image" value="{{{image}}}" hidden>
+                                  <script>
+                                    var loadFile = function (event) {
+                                      var image = document.getElementById('output');
+                                      image.src = URL.createObjectURL(event.target.files[0]);
+                                    };
+                                  </script>
+                                </label>
+                              </div>
+                              <div class="col-8">
+                                <div class="card-body p-3">
+                                  <div class="row ">
+                                    <div class="col-6 my-2">
+                                      <label for="name">Name :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <input class="form-control" type="text" name="name" value="{{{name}}}" placeholder="Enter Name">
+                                      <input class="form-control" type="text" name="id" value="{{{_id}}}" hidden>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <label for="brand">Brand Name :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <input class="form-control" type="text" value="{{{brand}}}" name="brand"
+                                        placeholder="Enter Brand Name or Type Local" required>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <label for="type">Type :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <select class="form-control" name="type" id="type">
+                                        <option value="{{{type}}}" hidden selected="selected">{{{type}}}</option>
+                                        <option value="0" disabled>Select</option>
+                                        <option value="Parfum">Parfum</option>
+                                        <option value="Eau de Parfum">Eau de Parfum</option>
+                                        <option value="Eau de Toilette">Eau de Toilette</option>
+                                        <option value="Eau de Cologne" ,>Eau de Cologne</option>
+                                        <option value="Eau Fraiche">Eau Fraiche</option>
+                                        <option value="Perfume Oil">Perfume Oil</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <label for="gender">Gender :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <select class="form-control" name="gender" id="gender">
+                                        <option value="{{{gender}}}" hidden selected="selected">{{{gender}}}</option>
+                                        <option value="0" disabled>Select</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Unisex">unisex</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <label for="size">Size :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <input class="form-control mb-1" type="number" name="size"
+                                        placeholder="Amount of quantity per unit e.g; 200" value="{{{size}}}">
+                                      <input class="form-control" type="text" name="size_unit"
+                                        placeholder="Unit of size e.g; mml " value="{{{"size unit"}}}">
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <label for="quantity">Quantity :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <input class="form-control" type="number" name="quantity" id="quantity" placeholder="Number of Pieces" value="{{{quantity}}}">
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <label for="cost_price">Cost Price :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <input class="form-control" type="number" name="cost_price"
+                                        placeholder="Price (is rupees) per piece" value="{{{"cost price"}}}">
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <label for="new_price">Sale Price :</label>
+                                    </div>
+                                    <div class="col-6 my-2">
+                                      <input class="form-control" type="number" name="new_price"
+                                        placeholder="Price (is rupees) per piece" value="{{{"new price"}}}">
+                                      <input class="form-control" type="number" name="old_price"
+                                        placeholder="Price (is rupees) per piece" value="{{{"new price"}}}" hidden>
+                                    </div>
+
+                                    <div class="col-12 my-2">
+                                      <label for="description">Description :</label>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                      <textarea class="form-control" name="description" id="description" rows="5"
+                                        placeholder="Any usefull notes for user">{{{description}}}</textarea>
+                                    </div>
+                                    <div class="col-12 my-2">
+                                      <button class="btn float-end px-5" type="submit"
+                                        style="background-color: green; color : white; font-weight:bold;">Edit</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+              {{else }}
+              <div class="container text-center text-danger">No result found...!</div>
+              {{/if}}
+
+              <!-- End Table with stripped rows -->
+            </div>
+
+          </div>
+  </section>
+
+</main><!-- End #main -->

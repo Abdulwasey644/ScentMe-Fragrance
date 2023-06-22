@@ -1,0 +1,112 @@
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Delete Product</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Product</a></li>
+        <li class="breadcrumb-item active">Delete Product</li>
+      </ol>
+      {{#if message }}
+      <div class="alert border-success alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {{/if}}
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section dashboard">
+    <div class="row">
+
+      <!-- Left side columns -->
+      <div class="col-12">
+        <div class="row">
+
+          <div class="col-xxl-4 col-xl-12">
+            <div class="card info-card card-body p-4">
+              <h2 class="theme text-center mb-2" style="font-weight: bold;">Products</h2>
+              <hr class="divider">
+              <!-- Table with stripped rows -->
+              {{#if items}}
+              <table class="table table-striped">
+                <thead style="display: block;">
+                  <tr class="row">
+                    <th class="col-3 text-center" scope="col">Click to Delete</th>
+                    <th class="col-1 text-center" scope="col">#</th>
+                    <th class="col-2 text-center" scope="col">Name</th>
+                    <th class="col-2 text-center" scope="col">Brand</th>
+                    <th class="col-1 text-center" scope="col">Price</th>
+                    <th class="col-2 text-center" scope="col">Last Update</th>
+                  </tr>
+                </thead>
+                <tbody style="overflow-y: scroll;display: block; max-height: 400px;">
+                  {{#each items}}
+                  <tr class="row">
+                    <th class="col-3 text-center" scope="col">
+                      <a class="btn btn-outline-danger px-5" style="font-weight:bold" data-bs-toggle="collapse"
+                        href="#item-{{{index}}}" role="button" aria-expanded="false"
+                        aria-controls="#item-{{{index}}}">Delete</a>
+                    </th>
+                    <th class="col-1 text-center" scope="row">{{{index}}}</th>
+                    <td class="col-2 text-center">{{{name}}}</td>
+                    <td class="col-2 text-center">{{{brand}}}</td>
+                    <td class="col-1 text-center">{{{"new price"}}}</td>
+                    <td class="col-2 text-center">{{{"update date"}}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">
+                      <div class="collapse multi-collapse my-2" id="item-{{index}}">
+                        <div class="card mb-3 ml-3">
+                          <div class="row">
+                            <div class="col-4">
+                              <img src="/static/img/perfumes/{{{image}}}" style="height:200px;object-fit: contain"
+                                class="img-fluid rounded-start m-2" alt="perfume image">
+                            </div>
+                            <div class="col-8">
+                              <div class="card-body">
+                                <h5 class="card-title">{{{name}}}</h5>
+                                <blockquote class="blockquote mb-0">
+                                  <footer class="blockquote-footer"><i>By <span>{{{brand}}}</span></i></footer>
+                                </blockquote>
+                                <div>
+                                  <span>For <span>{{{gender}}}</span></span>
+                                  <span>in</span>
+                                  <span>Rs. {{{"new price"}}}<span
+                                      style="color:gray; text-decoration: line-through;">Rs. {{{"old
+                                      price"}}}</span></span>
+                                </div>
+                                <div>
+                                  <span>Type : <span>{{{type}}}</span></span><span class="mx-3">|</span>
+                                  <span>Size : <span>{{{size}}}{{{"size unit"}}}</span> per unit</span><span
+                                    class="mx-3">|</span>
+                                  <span>Units in Stock : <span>{{{quantity}}}</span></span>
+                                </div>
+                                <div>{{this.description}}</div>
+                                <div>
+                                  <form action="/product/delete" method="post" enctype='multipart/form-data'>
+                                    <input type="text" name="id" value="{{{_id}}}" hidden>
+                                    <button class="btn float-end px-5" type="submit"
+                                      style="background-color: red; color : white; font-weight:bold;">Delete</button>
+                                </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+            </td>
+            </tr>
+            {{/each}}
+            </tbody>
+            </table>
+            {{else }}
+            <div class="container text-center text-danger">No result found...!</div>
+            {{/if}} <!-- End Table with stripped rows -->
+          </div>
+
+        </div>
+  </section>
+
+</main><!-- End #main -->
