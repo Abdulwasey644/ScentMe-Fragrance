@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 export default function Brand() {
   const [brandsList, setBrandsList] = useState({});
   useEffect(() => {
-    fetch("https://scent-me-fragrance-05.onrender.com/brands")
+    fetch("http://localhost:3001/brands")
       .then((response) => response.json())
-      // .catch((err) => console.log(err))
+      // .catch((err) => console.log(err))https://scent-me-fragrance-05.onrender.com
       .then((data) => {
         console.log(data);
         setBrandsList(data);

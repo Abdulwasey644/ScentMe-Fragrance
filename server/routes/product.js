@@ -256,7 +256,7 @@ router.get("/api", async (req, res) => {
 
     for (let i = 0; i < products.length; i++) {
       products[i]["image"] =
-        "http://localhost:3001/static/img/perfumes/" + products[i]["image"];
+        "https://scent-me-fragrance-05.onrender.com/static/img/perfumes/" + products[i]["image"];
       const result = await WishProduct.find({
         "product id": products[i]._id.valueOf(),
       }).lean();
@@ -286,7 +286,7 @@ router.get("/api/:id", async (req, res) => {
 
     for (let i = 0; i < products.length; i++) {
       products[i]["image"] =
-        "http://localhost:3001/static/img/perfumes/" + products[i]["image"];
+        "https://scent-me-fragrance-05.onrender.com/static/img/perfumes/" + products[i]["image"];
       const result = await WishProduct.find({
         "product id": products[i]._id.valueOf(),
       }).lean();
@@ -327,7 +327,7 @@ router.get("/api/type/:type", async (req, res) => {
 
     for (let i = 0; i < products.length; i++) {
       products[i]["image"] =
-        "http://localhost:3001/static/img/perfumes/" + products[i]["image"];
+        "https://scent-me-fragrance-05.onrender.com/static/img/perfumes/" + products[i]["image"];
       const result = await WishProduct.find({
         "product id": products[i]._id.valueOf(),
       }).lean();
@@ -360,7 +360,7 @@ router.get("/api/value/:value?", async (req, res) => {
 
     for (let i = 0; i < products.length; i++) {
       products[i]["image"] =
-        "http://localhost:3001/static/img/perfumes/" + products[i]["image"];
+        "https://scent-me-fragrance-05.onrender.com/static/img/perfumes/" + products[i]["image"];
       const result = await WishProduct.find({
         "product id": products[i]._id.valueOf(),
       }).lean();
@@ -406,7 +406,7 @@ router.get("/api/type/:type/value/:value?", async (req, res) => {
 
     for (let i = 0; i < products.length; i++) {
       products[i]["image"] =
-        "http://localhost:3001/static/img/perfumes/" + products[i]["image"];
+        "https://scent-me-fragrance-05.onrender.com/static/img/perfumes/" + products[i]["image"];
       const result = await WishProduct.find({
         "product id": products[i]._id.valueOf(),
       }).lean();
@@ -470,7 +470,7 @@ router.get("/wishlist/api", async (req, res) => {
     console.log(products.length)
     for (let i = 0; i < products.length; i++) {
       products[i]["image"] =
-        "http://localhost:3001/static/img/perfumes/" + products[i]["image"];
+        "https://scent-me-fragrance-05.onrender.com/static/img/perfumes/" + products[i]["image"];
       products[i]["wish"] = true;
     }
 
@@ -528,7 +528,7 @@ router.get("/cart/api", async (req, res) => {
     const products = await Product.find({ _id: { $in: ids } }).lean();
     for (let i = 0; i < products.length; i++) {
       products[i]["image"] =
-        "http://localhost:3001/static/img/perfumes/" + products[i]["image"];
+        "https://scent-me-fragrance-05.onrender.com/static/img/perfumes/" + products[i]["image"];
       products[i]["cart"] = true;
     }
     console.log("api/cart", products);

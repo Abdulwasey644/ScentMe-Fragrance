@@ -3,12 +3,7 @@ import ProductCard from "./ProductCard";
 import Filter from "./Filter";
 
 export default function Product(props) {
-  // useEffect(()=>{
-  //   props.setFilter({
-  //     type : "",
-  //     value : ""
-  //   })
-  // },[props])
+  const baseurl = ""
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
