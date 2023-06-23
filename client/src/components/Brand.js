@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function Brand() {
   const [brandsList, setBrandsList] = useState({});
   useEffect(() => {
-    fetch("http://localhost:3001/brands")
+    fetch("https://scent-me-fragrance-05.onrender.com/brands")
       .then((response) => response.json())
       // .catch((err) => console.log(err))
       .then((data) => {
