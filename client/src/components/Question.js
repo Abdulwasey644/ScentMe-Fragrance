@@ -4,7 +4,7 @@ import Accordion from "react-bootstrap/Accordion";
 export default function Question() {
   const [questionList, setQuestionList] = useState({});
   useEffect(() => {
-    fetch("http://localhost:3001/questions")
+    fetch("https://scent-me-fragrance-05.onrender.com/questions")
       .then((response) => response.json())
       // .catch((err) => console.log(err))
       .then((data) => {

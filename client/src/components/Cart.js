@@ -35,7 +35,7 @@ export default function Cart() {
     setProducts(products.filter((item) => item.id !== id));
     setUpdatedProducts(products);
 
-    fetch("http://localhost:3001/product/cart/delete", {
+    fetch("https://scent-me-fragrance-05.onrender.com/product/cart/delete", {
       method: "POST",
       body: JSON.stringify({ id: id }),
       headers: { "Content-Type": "application/json" },
@@ -49,7 +49,7 @@ export default function Cart() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3001/product/cart/api")
+    fetch("https://scent-me-fragrance-05.onrender.com/product/cart/api")
       .then((response) => response.json())
       .then((data) => {
         console.log("data", data);
@@ -83,7 +83,7 @@ export default function Cart() {
       //   setProducts(updatedProducts);
       // }
       console.log(products)
-      const response = await fetch("http://localhost:3001/order/payment", {
+      const response = await fetch("https://scent-me-fragrance-05.onrender.com/order/payment", {
         method: "POST",
         body: JSON.stringify({ amount: sum * 100, token, products: products }),
         headers: { "Content-Type": "application/json" },

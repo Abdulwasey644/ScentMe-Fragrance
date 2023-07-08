@@ -3,17 +3,16 @@ import ProductCard from "./ProductCard";
 import Filter from "./Filter";
 
 export default function Product(props) {
-  const baseurl = ""
 
   const [products, setProducts] = useState([]);
+  const  baseurl = "https://scent-me-fragrance-05.onrender.com/"
   useEffect(() => {
     fetch(
-      `http://localhost:3001/product/api${
+      `${baseurl}product/api${
         props.filter.type ? "/type/" + props.filter.type : ""
       }${props.filter.value ? "/value/" + props.filter.value : ""}`
     )
       .then((response) => response.json())
-      // .catch((err) => console.log(err))
       .then((data) => {
         console.log(data);
         setProducts(data);

@@ -8,7 +8,7 @@ export default function FilterItem(props) {
     outlineColor: "orange",
     border: "2px solid orange",
     backgroundColor:
-      isHover || props.filter.type === props.id ? "orange" : "white",
+      isHover || props.filter.type === props.id ? "yellow" : "white",
     color: isHover || props.filter.type === props.id ? "white" : "orange",
     cursor: "pointer",
   };

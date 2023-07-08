@@ -4,10 +4,11 @@ import {Link ,useNavigate} from "react-router-dom"
 
 export default function Card(props) {
   const [wishProduct, setWishProduct] = useState(props.wish);
+  const baseurl = "https://scent-me-fragrance-05.onrender.com/"
 
   const handleWishProduct = (id) => {
     if (!wishProduct) {
-      fetch("http://localhost:3001/product/wishlist/add", {
+      fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/add", {
         method: "POST",
         body: JSON.stringify({ id: id }),
         headers: { "Content-Type": "application/json" },
@@ -19,7 +20,7 @@ export default function Card(props) {
         return response.json();
       });
     } else {
-      fetch("http://localhost:3001/product/wishlist/delete", {
+      fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/delete", {
         method: "POST",
         body: JSON.stringify({ id: id }),
         headers: { "Content-Type": "application/json" },
@@ -35,7 +36,7 @@ export default function Card(props) {
   };
 
   const handleCartProduct = (id) => {
-    fetch("http://localhost:3001/product/wishlist/delete", {
+    fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/delete", {
       method: "POST",
       body: JSON.stringify({ id: id }),
       headers: { "Content-Type": "application/json" },
@@ -43,7 +44,7 @@ export default function Card(props) {
       console.log(response);
       return response.json();
     });
-    fetch("http://localhost:3001/product/cart/add", {
+    fetch("https://scent-me-fragrance-05.onrender.com/product/cart/add", {
       method: "POST",
       body: JSON.stringify({ id: id }),
       headers: { "Content-Type": "application/json" },
@@ -73,18 +74,7 @@ export default function Card(props) {
         />
       </div>
       <h6>
-        {props.oldPrice !== props.price ? (
-          <span
-            className="old mx-2"
-            style={{ textDecoration: "line-through", opacity: "0.75" }}
-          >
-            <i>
-              <span>{props.priceUnit}</span> {props.oldPrice}
-            </i>
-          </span>
-        ) : (
-          ""
-        )}
+       
         <span>
           <span>{props.priceUnit}</span>
           {props.price}

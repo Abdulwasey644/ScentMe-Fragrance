@@ -53,7 +53,17 @@ export default function MenuBar() {
             iconClass: "fa fa-shopping-cart mx-2",
             iconStyle: { color: "#fd7e14" },
             text: "Cart",
-          },
+           }
+          //,
+          // {
+          //   class: "nav-item px-4",
+          //   link: "/history",
+          //   style: { borderRight: "2px solid white" },
+          //   linkClass: "nav-link",
+          //   iconClass: "fa fa-shopping-cart mx-2",
+          //   iconStyle: { color: "#fd7e14" },
+          //   text: "Older History",
+          // }
         ]}
       />
     </div>

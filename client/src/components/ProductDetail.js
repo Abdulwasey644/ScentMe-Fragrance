@@ -9,7 +9,7 @@ export default function ProductDetail() {
   const [wishProduct, setWishProduct] = useState(requestParameter.wish === "true" ? true : false);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/product/api/${requestParameter.id}`)
+    fetch(`https://scent-me-fragrance-05.onrender.com/product/api/${requestParameter.id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -20,7 +20,7 @@ export default function ProductDetail() {
   const handleWishProduct = (id) => {
     console.log(typeof wishProduct)
     if (!wishProduct) {
-      fetch("http://localhost:3001/product/cart/delete", {
+      fetch("https://scent-me-fragrance-05.onrender.com/product/cart/delete", {
         method: "POST",
         body: JSON.stringify({ id: id }),
         headers: { "Content-Type": "application/json" },
@@ -28,7 +28,7 @@ export default function ProductDetail() {
         console.log(response);
         return response.json();
       });
-      fetch("http://localhost:3001/product/wishlist/add", {
+      fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/add", {
         method: "POST",
         body: JSON.stringify({ id: id }),
         headers: { "Content-Type": "application/json" },
@@ -40,7 +40,7 @@ export default function ProductDetail() {
         return response.json();
       });
     } else {
-      fetch("http://localhost:3001/product/wishlist/delete", {
+      fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/delete", {
         method: "POST",
         body: JSON.stringify({ id: id }),
         headers: { "Content-Type": "application/json" },
@@ -56,7 +56,7 @@ export default function ProductDetail() {
   };
 
   const handleCartProduct = (id) => {
-    fetch("http://localhost:3001/product/wishlist/delete", {
+    fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/delete", {
       method: "POST",
       body: JSON.stringify({ id: id }),
       headers: { "Content-Type": "application/json" },
@@ -64,7 +64,7 @@ export default function ProductDetail() {
       console.log(response);
       return response.json();
     });
-    fetch("http://localhost:3001/product/cart/add", {
+    fetch("https://scent-me-fragrance-05.onrender.com/product/cart/add", {
       method: "POST",
       body: JSON.stringify({ id: id }),
       headers: { "Content-Type": "application/json" },

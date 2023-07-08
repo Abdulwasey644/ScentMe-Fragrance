@@ -6,7 +6,7 @@ export default function Wish() {
 
   useEffect(() => {
     // setInterval(() => {
-    fetch("http://localhost:3001/product/wishlist/api")
+    fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/api")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

@@ -39,6 +39,7 @@ function NavBar(props) {
             >
               Search
             </button>
+            <button>Older history</button>
           </div>
           <div className="d-flex justify-content-center px-5">
             <Link to="/">

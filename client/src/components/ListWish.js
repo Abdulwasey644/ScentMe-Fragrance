@@ -1,6 +1,6 @@
 export default function ListWish(props) {
   const removeWishProduct = (id) => {
-    fetch("http://localhost:3001/product/wishlist/delete", {
+    fetch("https://scent-me-fragrance-05.onrender.com/product/wishlist/delete", {
       method: "POST",
       body: JSON.stringify({ id: id }),
       headers: { "Content-Type": "application/json" },
@@ -15,7 +15,7 @@ export default function ListWish(props) {
 
   const addCartProduct = (id) => {
     removeWishProduct(id);
-    fetch("http://localhost:3001/product/cart/add", {
+    fetch("https://scent-me-fragrance-05.onrender.com/product/cart/add", {
       method: "POST",
       body: JSON.stringify({ id: id }),
       headers: { "Content-Type": "application/json" },
