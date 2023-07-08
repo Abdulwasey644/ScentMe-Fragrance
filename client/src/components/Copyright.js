@@ -3,9 +3,15 @@ import React from 'react'
 
 const mactercard = ""
 
+
+
 export default function Copyright() {
   return (
     <>
+
+        
+
+
         <div className="d-flex justify-content-between">
             <div>
                 <span>Copyright &copy; 2023 Scents-Me Inc.</span> <span>All rights reserved, designed by Team Developer.</span>
